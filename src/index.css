@@ -79,16 +79,16 @@ button:focus-visible {
   padding: 0.5em 1em;
 }
 
-.go-somewhere {
+.main-menu {
   display: flex;
   justify-content: space-evenly;
 }
 
-.go-somewhere > li {
+.main-menu > li {
   float: right;
 }
 
-.go-somewhere > li:hover {
+.main-menu > li:hover {
   transform: scale(1.3);
 }
 
