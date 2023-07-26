@@ -5,14 +5,14 @@ import { useHero } from './hooks/useHero';
 import { v4 as uuid } from 'uuid';
 import './App.css';
 
+import Header from './Header';
+
 function App() {
   const [trips, setTrips] = useState(0);
   // const [nav, setNav] = useState<string[]>([]);
   const [boughtIt, setBoughtIt] = useState(false);
   const { data, isLoading, error } = useFetch();
   const { heroics, waitAMo, fail } = useHero();
-
-  const nav: Array<string> = ['trending', 'your orders', 'community'];
 
   useEffect(() => {
     if (heroics) if (data) setTrips(data.length);
@@ -45,28 +45,7 @@ function App() {
 
   return (
     <>
-      <header className='site-header'>
-        <div className='site-identity'>
-          <a>
-            <img
-              className='eefe-logo'
-              src='/icons8-space-64.png'
-              alt='eefe spaceship logo'
-            />
-          </a>
-          <h1>Extraterrestrial Excursions for Earthlings</h1>
-        </div>
-
-        <ul className='main-menu'>
-          {nav.map((navLink) => {
-            return (
-              <li key={navLink}>
-                <a href={navLink}> {navLink}</a>
-              </li>
-            );
-          })}
-        </ul>
-      </header>
+      <Header />
 
       {waitAMo && <p>...getting heroics...</p>}
       {heroics && (
